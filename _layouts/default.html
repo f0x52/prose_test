@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=512px" />
+        {% if page.url == "/" %}
+        <title>[ f0x ]</title>
+        {% else %}
+        <title>[ f0x ] [ {{ page.title }} ]</title>
+        {% endif %}
+        <link href="{{ "/css/style.css" }}" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <center>
+            [ f0x ]<br><br>
+            <span class="links">
+            {% capture output %}
+            {% if page.url != "/" %}
+    <a href="{{ site.url }}">home</a>
+            {% endif %}
+            {% for site_page in site.pages %}
+                {% if page.url != site_page.url %}
+                    {% if site_page.nolink != true %}
+                <a href="{{ site_page.url | prepend: site.baseurl }}">{{ site_page.title }}</a>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            {% endcapture %}{{ output | replace_regex: '^\s*$\n', '' }}</span>
+            <br><br><br>
+            {{ content }}
+        </center>
+    </body>
+</html>
+

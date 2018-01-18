@@ -1,0 +1,31 @@
+html {
+    background: #1c1c1c;
+	font-family: monospace;
+	padding: 10%;
+    color: #aaa;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: #d18a2e;
+    padding: 2px;
+}
+
+a:hover {
+    color: #1c1c1c;
+    background-color: #d18a2e;
+    transition: 0.4s;
+}
+
+.links a {
+    padding: 0;
+}
+
+.links a:hover {
+    padding: 5px;
+}
+
