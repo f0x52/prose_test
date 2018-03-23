@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=512px" />
+        <meta name="viewport" content="width=256px" />
         {% if page.url == "/" %}
         <title>[ f0x ]</title>
         {% else %}
@@ -11,24 +11,24 @@
         <link href="{{ "/css/style.css" }}" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <center>
+        <div class="header">
             [ f0x ]<br><br>
-            <span class="links">
+            <div class="links">
             {% capture output %}
             {% if page.url != "/" %}
-    <a href="{{ site.url }}">home</a>
+    <a href="/">home</a>
             {% endif %}
             {% for site_page in site.pages %}
                 {% if page.url != site_page.url %}
                     {% if site_page.nolink != true %}
                 <a href="{{ site_page.url | prepend: site.baseurl }}">{{ site_page.title }}</a>
+
                     {% endif %}
                 {% endif %}
             {% endfor %}
-            {% endcapture %}{{ output | replace_regex: '^\s*$\n', '' }}</span>
-            <br><br><br>
-            {{ content }}
-        </center>
+            {% endcapture %}{{ output | replace_regex: '^\s*$\n', '' }}</div>
+        </div>
+        {{ content }}
     </body>
 </html>
 
